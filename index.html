@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>DomRepeater</title>
+
+    <script type="text/javascript" src="src/lib/jquery-1.12.1.js"></script>
+    <script type="text/javascript" src="src/lib/jquery-ui.min.js"></script>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border-bottom: 1px solid black;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<form action="http://localhost:8080/loom-portal/StartProcessInstance.form?uid=ZnRhL3BtOnRhc2shbm1vdGlvbg==" method="post"
+      enctype="multipart/form-data">
+
+    <input type="hidden" name="processdefinition" id="processdefinition" value="DOMRepeater"/>
+
+    <table>
+        <tr class="repeat" data-repeat="outer">
+            <td>
+                OUTER 0
+                <button type="button" class="outer_add">Add</button>
+                <button type="button" class="outer_rem">Rem</button>
+            </td>
+            <td><input type="text" id="text_outer" name="text_outer"></td>
+            <td>
+                <select id="select_outer" name="select_outer">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </td>
+            <td><input type="checkbox" id="checkbox_outer" name="checkbox_outer" value="ja"></td>
+            <td>
+                <input type="radio" id="radio1_outer" name="radio_outer" value="eins">
+                <input type="radio" id="radio2_outer" name="radio_outer" value="zwei">
+            </td>
+            <td>
+
+                <table>
+                    <tr class="repeat" data-repeat="middle">
+                        <td>
+                            MIDDLE 0
+                            <button type="button" class="middle_add">Add</button>
+                            <button type="button" class="middle_rem">Rem</button>
+                        </td>
+                        <td><input type="text" id="text_middle" name="text_middle"></td>
+                        <td>
+                            <select id="select_middle" name="select_middle">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                        <td><input type="checkbox" id="checkbox_middle" name="checkbox_middle" value="ja"></td>
+                        <td>
+                            <input type="radio" id="radio1_middle" name="radio_middle" value="eins">
+                            <input type="radio" id="radio2_middle" name="radio_middle" value="zwei">
+                        </td>
+                        <td>
+
+                            <table>
+                                <tr class="repeat" data-repeat="inner">
+                                    <td>
+                                        INNER 0
+                                        <button type="button" class="inner_add">Add</button>
+                                        <button type="button" class="inner_rem">Rem</button>
+                                    </td>
+                                    <td><input type="text" id="text_inner" name="text_inner"></td>
+                                    <td>
+                                        <select id="select_inner" name="select_inner">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="checkbox" id="checkbox_inner" name="checkbox_inner" value="ja"></td>
+                                    <td>
+                                        <input type="radio" id="radio1_inner" name="radio_inner" value="eins">
+                                        <input type="radio" id="radio2_inner" name="radio_inner" value="zwei">
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr class="repeat" data-repeat="outer1">
+            <td>
+                OUTER 1
+                <button type="button" class="outer1_add">Add</button>
+                <button type="button" class="outer1_rem">Rem</button>
+            </td>
+            <td><input type="text" id="text_outer1" name="text_outer1"></td>
+            <td>
+                <select id="select_outer1" name="select_outer1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                </select>
+            </td>
+            <td><input type="checkbox" id="checkbox_outer1" name="checkbox_outer1" value="ja"></td>
+            <td>
+                <input type="radio" id="radio1_outer1" name="radio_outer1" value="eins">
+                <input type="radio" id="radio2_outer1" name="radio_outer1" value="zwei">
+            </td>
+            <td>
+
+                <table>
+                    <tr class="repeat" data-repeat="middle1">
+                        <td>
+                            MIDDLE 1
+                            <button type="button" class="middle1_add">Add</button>
+                            <button type="button" class="middle1_rem">Rem</button>
+                        </td>
+                        <td><input type="text" id="text_middle1" name="text_middle1"></td>
+                        <td>
+                            <select id="select_middle1" name="select_middle1">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </td>
+                        <td><input type="checkbox" id="checkbox_middle1" name="checkbox_middle1" value="ja"></td>
+                        <td>
+                            <input type="radio" id="radio1_middle1" name="radio_middle1" value="eins">
+                            <input type="radio" id="radio2_middle1" name="radio_middle1" value="zwei">
+                        </td>
+                        <td>
+
+                            <table>
+                                <tr class="repeat" data-repeat="inner1">
+                                    <td>
+                                        INNER 1
+                                        <button type="button" class="inner1_add">Add</button>
+                                        <button type="button" class="inner1_rem">Rem</button>
+                                    </td>
+                                    <td><input type="text" id="text_inner1" name="text_inner1"></td>
+                                    <td>
+                                        <select id="select_inner1" name="select_inner1">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="checkbox" id="checkbox_inner1" name="checkbox_inner1" value="ja"></td>
+                                    <td>
+                                        <input type="radio" id="radio1_inner1" name="radio_inner1" value="eins">
+                                        <input type="radio" id="radio2_inner1" name="radio_inner1" value="zwei">
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <button type="submit">SUBMIT!</button>
+
+</form>
+
+</body>
+
+<script type="text/javascript" src="src/domrepeater.js"></script>
+
+<script type="text/javascript">
+
+    DOMRepeater(document);
+
+</script>
+
+</html>
