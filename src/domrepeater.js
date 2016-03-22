@@ -125,7 +125,7 @@
 		var self = this;
 
 		// Search for the add button and attach its click function
-		this.$html.on('click', '.' + this.id + '_add', function() {
+		this.$addBtn = this.$html.find('.' + this.id + '_add').on('click', function() {
 
 			self.add(true);
 
@@ -143,7 +143,7 @@
 		});
 
 		// Search for the rem button and attach its click function
-		this.$html.on('click', '.' + this.id + '_rem', function() {
+		this.$remBtn = this.$html.find('.' + this.id + '_rem').on('click', function() {
 
 			self.rem();
 
@@ -171,73 +171,74 @@
 		var self = this;
 
 		// Find and cache all inputs of this Repeater
-		this.$inputs = $(':input[name]', this.$html).not($('.repeat :input', this.$html)).each(function(i, el) {
+		this.$inputs = $(':input[name]:not(button,[type="button"])', this.$html)
+			.not($('.repeat :input', this.$html)).each(function(i, el) {
 
-			// Store the original id/name
-			var $el = $(el), id = el.id, name = el.name;
+				// Store the original id/name
+				var $el = $(el), id = el.id, name = el.name;
 
-			$(el).on('alter', function() {
+				$(el).on('alter', function() {
 
-				// Get the current suffix
-				var suffix = self.idSuffix();
+					// Get the current suffix
+					var suffix = self.idSuffix();
 
-				// Adjust the id/name attributes
-				this.id   = id ? id + suffix : null;
-				this.name = name ? name + suffix : null;
+					// Adjust the id/name attributes
+					this.id   = id ? id + suffix : null;
+					this.name = name ? name + suffix : null;
 
-			}).on('change.rep', function() {
+				}).on('change.rep', function() {
 
-				if (ENTITY) {
-
-					// Don't use true/false if this is a checkbox, use this fields value or ''
-					ENTITY.setValue(this.name, $el.is(':checkbox') ? this.checked ? this.value : '' : this.value);
-
-				}
-
-			}).on('save.rep', function() {
-
-				if (ENTITY) {
-
-					if ($el.is(':radio')) {
-
-						if (this.checked) {
-
-							// Don't persist unchecked radio buttons
-							ENTITY.setValue(this.name, this.value);
-
-						}
-
-					}
-					else {
+					if (ENTITY) {
 
 						// Don't use true/false if this is a checkbox, use this fields value or ''
 						ENTITY.setValue(this.name, $el.is(':checkbox') ? this.checked ? this.value : '' : this.value);
 
 					}
 
-				}
+				}).on('save.rep', function() {
 
-			}).on('model2view.rep', function() {
+					if (ENTITY) {
 
-				if (ENTITY) {
+						if ($el.is(':radio')) {
 
-					// Puts the model value on the view
-					$el.val([ENTITY[this.name] || '']);
+							if (this.checked) {
 
-				}
+								// Don't persist unchecked radio buttons
+								ENTITY.setValue(this.name, this.value);
 
-			}).on('destroy.rep', function() {
+							}
 
-				if (ENTITY) {
+						}
+						else {
 
-					// Clears the model
-					ENTITY.setValue(this.name, '');
+							// Don't use true/false if this is a checkbox, use this fields value or ''
+							ENTITY.setValue(this.name, $el.is(':checkbox') ? this.checked ? this.value : '' : this.value);
 
-				}
+						}
+
+					}
+
+				}).on('model2view.rep', function() {
+
+					if (ENTITY) {
+
+						// Puts the model value on the view
+						$el.val([ENTITY[this.name] || '']);
+
+					}
+
+				}).on('destroy.rep', function() {
+
+					if (ENTITY) {
+
+						// Clears the model
+						ENTITY.setValue(this.name, '');
+
+					}
+
+				});
 
 			});
-
-		});
 
 	};
 
