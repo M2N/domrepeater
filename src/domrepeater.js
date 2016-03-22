@@ -171,7 +171,7 @@
 		var self = this;
 
 		// Find and cache all inputs of this Repeater
-		this.$inputs = $(':input[name]', this.$html).not($('.repeat :input', this.$html)).each(function(i, el) {
+		this.$inputs = $(':input[name]:not(button,[type="button"])', this.$html).not($('.repeat :input', this.$html)).each(function(i, el) {
 
 			// Store the original id/name
 			var $el = $(el), id = el.id, name = el.name;
